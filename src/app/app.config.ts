@@ -10,7 +10,7 @@ import { LoadingInterceptor } from './interceptor/loading.interceptor';
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes , withHashLocation() ), provideHttpClient(withInterceptorsFromDi()),provideAnimations() , provideToastr(),
+  providers: [provideRouter(routes), provideHttpClient(withInterceptorsFromDi()),provideAnimations() , provideToastr(),
   {provide:HTTP_INTERCEPTORS,useClass:MyHttpInterceptor,multi:true},
   {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true},
   ], // important note for inject global modules

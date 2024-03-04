@@ -36,7 +36,7 @@ export class CartService {
   checkOut(cartID: string, userData: {}): Observable<any> {
     return this._HttpClient.post(
       this.baseURL +
-        `/api/v1/orders/checkout-session/${cartID}?url=https://mohamed-kamash.github.io/FreshCart-Ecommerce-App/`,
+        `/api/v1/orders/checkout-session/${cartID}?url=https://fresh-cart-ecommerce-app-mu.vercel.app`,
       { shippingAddress: userData }
     );
   }
