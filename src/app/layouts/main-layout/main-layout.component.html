@@ -1,0 +1,100 @@
+<nav #mainNav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">
+      <img src="./assets/images/freshcart-logo.svg" alt="fresh cart logo"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item text-center">
+          <a
+            class="nav-link"
+            routerLink="/home"
+            routerLinkActive="active-link"
+            (click)="autoClose()"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item text-center">
+          <a
+            class="nav-link"
+            routerLink="/products"
+            routerLinkActive="active-link"
+            (click)="autoClose()"
+            >Products</a
+          >
+        </li>
+        <li class="nav-item text-center">
+          <a
+            class="nav-link"
+            routerLink="/categories"
+            routerLinkActive="active-link"
+            (click)="autoClose()"
+            >Categories</a
+          >
+        </li>
+        <li class="nav-item text-center">
+          <a
+            class="nav-link"
+            routerLink="/brands"
+            routerLinkActive="active-link"
+            (click)="autoClose()"
+            >Brands</a
+          >
+        </li>
+        <li class="nav-item text-center">
+          <a
+            class="nav-link"
+            routerLink="/allorders"
+            routerLinkActive="active-link"
+            (click)="autoClose()"
+            >Orders</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="d-flex align-items-center justify-content-center gap-4">
+          <a
+            class="nav-link position-relative"
+            routerLink="/wishList"
+            (click)="autoClose()"
+          >
+            <i class="fa-solid fa-heart text-main-color fs-3"></i>
+            <span
+              class="bg-danger position-absolute end-0 top-0 font-sm rounded-2 px-1 text-white fw-bold"
+              >{{ wishListCount }}</span
+            >
+          </a>
+          <a
+            class="nav-link position-relative"
+            routerLink="/cart"
+            (click)="autoClose()"
+          >
+            <i class="fa-solid fa-cart-shopping text-main-color fs-3"></i>
+            <span
+              class="bg-danger position-absolute end-0 top-0 font-sm rounded-2 px-1 text-white fw-bold"
+              >{{ myCart }}</span
+            >
+          </a>
+        </li>
+        <li class="text-center">
+          <button class="btn" (click)="logOut()">LogOut</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- home,cart,products,categories,brands -->
+<div class="container py-5 my-5">
+  <router-outlet></router-outlet>
+</div>

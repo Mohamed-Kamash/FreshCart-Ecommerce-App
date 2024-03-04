@@ -1,0 +1,63 @@
+<section *ngIf="cartItems.products.length > 0; else temp" class="p-5">
+  <h2>Your Shop Cart</h2>
+  <h3 class="text-main-color h4">
+    Total price : {{ cartItems.totalCartPrice }}
+  </h3>
+  <div
+    class="row bg-light border-bottom align-items-center"
+    *ngFor="let item of cartItems.products"
+  >
+    <div class="col-md-2">
+      <figure>
+        <img [src]="item.product.imageCover" class="w-100" />
+      </figure>
+    </div>
+
+    <div class="col-md-10">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h4>{{ item.product.title }}</h4>
+          <h5 class="text-main-color">Price : {{ item.price }}</h5>
+          <span
+            class="text-danger"
+            role="button"
+            (click)="RemoveItem(item.product._id)"
+          >
+            <i class="fas fa-trash-can"></i> remove
+          </span>
+        </div>
+        <div class="flex-shrink-0">
+          <!-- increase button -->
+          <button
+            class="btn border"
+            (click)="updateQuantity(item.product._id, item.count + 1)"
+          >
+            <i class="fas fa fa-plus fs-4 text-main-color"></i>
+          </button>
+
+          <span class="mx-2"> {{ item.count }} </span>
+
+          <!-- decrease button -->
+          <button
+            id="minisBtn"
+            class="btn border"
+            [disabled]="item.count == 1"
+            (click)="updateQuantity(item.product._id, item.count - 1)"
+          >
+            <i class="fa-solid fa-minus fs-4 text-danger"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn-main mt-4" [routerLink]="['/checkOut', cartID]">
+    Online Payment <img src="./assets/images/visa-1.svg" alt="visa" />
+  </button>
+</section>
+
+<ng-template #temp>
+  <p class="text-center h1">Your Shop Cart Still Empty :(</p>
+  <div class="text-center my-3">
+    <button routerLink="/home" class="btn btn-main">Go To Shopping! :)</button>
+  </div>
+</ng-template>

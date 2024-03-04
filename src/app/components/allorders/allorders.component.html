@@ -1,0 +1,15 @@
+<section>
+  <div class="mb-3 border-bottom" *ngFor="let order of userOrders">
+    <div>
+      <h5 class="main-text-color border-bottom d-inline-block text-primary">
+        Total Order Price : {{ order.totalOrderPrice | currency : " EGP " }}
+      </h5>
+      <p>
+        Payment status:
+        <span class="text-main-color">{{ order.isPaid }}</span>
+      </p>
+      <p>Payment date: {{ order.paidAt | date }}</p>
+      <p>Payment method : {{ order.paymentMethodType }}</p>
+    </div>
+  </div>
+</section>

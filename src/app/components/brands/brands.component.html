@@ -1,0 +1,9 @@
+<section>
+  <div class="row">
+    <div id="mainDiv" class="col-md-3" *ngFor="let brand of allBrands">
+      <div class="text-center border my-3 rounded-2 overflow-hidden product">
+        <img [src]="brand.image" class="w-75" [alt]="brand.name" />
+      </div>
+    </div>
+  </div>
+</section>

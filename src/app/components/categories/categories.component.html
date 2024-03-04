@@ -1,0 +1,30 @@
+<section>
+  <div class="row">
+    <div class="col-md-3 gy-4" *ngFor="let item of allCategoriesResponse">
+      <div class="card" (click)="getSubCatDetails(item._id, item.name)">
+        <img
+          [src]="item.image"
+          height="300"
+          class="w-100 card-img-top"
+          alt="{{ item.name }}"
+        />
+        <div class="card-body border-top">
+          <p class="card-text text-center text-main-color fw-bold">
+            {{ item.name }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="subCategory">
+  <h2 class="text-center my-4 fw-bold border-bottom">
+    {{ subCategory.mainName + " Subcategories" }}
+  </h2>
+  <div class="d-flex gap-3 gy-3 flex-wrap cursor-pointer">
+    <p class="h3 product p-2 flex-shrink-0" *ngFor="let sub of subCategory">
+      {{ sub.name }}
+    </p>
+  </div>
+</section>

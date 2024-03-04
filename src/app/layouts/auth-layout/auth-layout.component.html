@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/home">
+        <img src="./assets/images/freshcart-logo.svg" alt="fresh cart logo"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="d-flex align-items-center justify-content-center gap-4">
+            <i class="fa fa-brands fa-instagram cursor-pointer"></i>
+            <i class="fa fa-brands fa-facebook cursor-pointer"></i>
+            <i class="fa fa-brands fa-tiktok cursor-pointer"></i>
+            <i class="fa fa-brands fa-twitter cursor-pointer"></i>
+            <i class="fa fa-brands fa-linkedin cursor-pointer"></i>
+            <i class="fa fa-brands fa-youtube cursor-pointer"></i>
+          </li>
+          <li class="text-center">
+            <button
+              class="btn ms-2"
+              routerLink="/login"
+              routerLinkActive="active-link"
+            >
+              Login
+            </button>
+          </li>
+          <li class="text-center">
+            <button
+              class="btn"
+              routerLink="/register"
+              routerLinkActive="active-link"
+            >
+              Register
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container py-5 my-5">
+    <router-outlet></router-outlet>
+  </div>
+  

@@ -1,0 +1,73 @@
+<form
+  class="w-75 mx-auto p-md-4 rounded-4 shadow"
+  [formGroup]="loginForm"
+  (ngSubmit)="login()"
+>
+  <h2>Login Now :</h2>
+
+  <!-- input -->
+  <div class="w-75 mx-auto mb-4">
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      formControlName="email"
+      id="email"
+      class="form-control"
+    />
+
+    <!-- erros alret div -->
+    <div
+      class="text-danger"
+      *ngIf="
+        loginForm.get('email')?.errors &&
+        (loginForm.get('email')?.touched ||
+          loginForm.get('email')?.value.length > 0)
+      "
+    >
+      <p *ngIf="loginForm.get('email')?.getError('required')">
+        -Email is Required
+      </p>
+      <p *ngIf="loginForm.get('email')?.getError('email')">
+        -Invalid Email Form eg:xyz@mail.com
+      </p>
+    </div>
+  </div>
+
+  <!-- input -->
+  <div class="w-75 mx-auto mb-4">
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      formControlName="password"
+      id="password"
+      class="form-control"
+    />
+
+    <!-- erros alret div -->
+    <div
+      class="text-danger"
+      *ngIf="
+        loginForm.get('password')?.errors &&
+        (loginForm.get('password')?.touched ||
+          loginForm.get('password')?.value.length > 0)
+      "
+    >
+      <p *ngIf="loginForm.get('password')?.getError('required')">
+        -Password is Required
+      </p>
+    </div>
+  </div>
+
+  <!-- API Response -->
+  <p class="text-center text-danger">{{ serverErrorResponse }}</p>
+
+  <button
+    class="btn btn-main ms-auto d-block"
+    [disabled]="loginForm.invalid"
+    (click)="login()"
+  >
+    <i class="fas fa-spin fa-spinner" *ngIf="isLoading"></i>
+    <span *ngIf="!isLoading">Login</span>
+  </button>
+  <a routerLink="/resetPassword" class="m-0">Forgot Password ?</a>
+</form>
