@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter , withHashLocation } from '@angular/router';
+import { provideRouter} from '@angular/router';
 import { routes } from './app.routes';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'; // import httpClientModule bs esmo kda fel stnadalone
 import { provideAnimations } from '@angular/platform-browser/animations'; // import BrowserAnimationsModule bs esmo kda fel stnadalone

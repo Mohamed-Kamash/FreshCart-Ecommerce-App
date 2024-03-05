@@ -23,7 +23,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
       request = request.clone({
         setHeaders: { token: myHeader }
       })
-    } else { this._Router.navigate(["/login"]) }
+    }
 
     return next.handle(request);
   }

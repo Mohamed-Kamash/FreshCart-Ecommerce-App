@@ -41,7 +41,7 @@ export class RegisterComponent {
       let userData = this.registerForm.value
       // using register API
       this._AuthService.register(userData).subscribe({
-        next:(response)=>{
+        next:()=>{
           this.isLoading=false
           this._Router.navigate(['/login'])
         }
